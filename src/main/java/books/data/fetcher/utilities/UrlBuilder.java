@@ -35,6 +35,71 @@ public class UrlBuilder {
         return this;
     }
 
+    public UrlBuilder withTopic(String topic) {
+        urlParameters.put(UrlParameter.TOPIC, topic);
+        return this;
+    }
+
+    public UrlBuilder withTopicPlace(String topicPlace) {
+        urlParameters.put(UrlParameter.TOPIC_PLACE, topicPlace);
+        return this;
+    }
+
+    public UrlBuilder withTopicTime(String topicTime) {
+        urlParameters.put(UrlParameter.TOPIC_TIME, topicTime);
+        return this;
+    }
+
+    public UrlBuilder withTopicWork(String topicWork) {
+        urlParameters.put(UrlParameter.TOPIC_WORK, topicWork);
+        return this;
+    }
+
+    public UrlBuilder withPublicationPlace(String publicationPlace) {
+        urlParameters.put(UrlParameter.PUBLICATION_PLACE, publicationPlace);
+        return this;
+    }
+
+    public UrlBuilder withPublisher(String publisher) {
+        urlParameters.put(UrlParameter.PUBLISHER, publisher);
+        return this;
+    }
+
+    public UrlBuilder withGenre(String genre) {
+        urlParameters.put(UrlParameter.GENRE, genre);
+        return this;
+    }
+
+    public UrlBuilder withTimeOfCreation(String timeOfCreation) {
+        urlParameters.put(UrlParameter.TIME_OF_CREATION, timeOfCreation);
+        return this;
+    }
+
+    public UrlBuilder withCulturalOrigin(String culturalOrigin) {
+        urlParameters.put(UrlParameter.CULTURAL_ORIGIN, culturalOrigin);
+        return this;
+    }
+
+    public UrlBuilder withYearOfPublication(String yearOfPublication) {
+        urlParameters.put(UrlParameter.YEAR_OF_PUBLICATION, yearOfPublication);
+        return this;
+    }
+
+    public UrlBuilder withOriginalLanguage(String originalLanguage) {
+        urlParameters.put(UrlParameter.ORIGINAL_LANGUAGE, originalLanguage);
+        return this;
+    }
+
+    public UrlBuilder withTitle(String title) {
+        urlParameters.put(UrlParameter.TITLE, title);
+        return this;
+    }
+
+    public UrlBuilder withLimit(String limit) {
+        urlParameters.put(UrlParameter.LIMIT, limit);
+        return this;
+    }
+
     public URL build() {
         String host = getUrl(urlType);
         String fileType = responseFileType.getValue();
@@ -46,7 +111,7 @@ public class UrlBuilder {
         }
 
         try {
-            return new URL(host + fileType + parameters);
+            return new URL(host + fileType + "?" + parameters);
         } catch (MalformedURLException e) {
             return null;
         }
@@ -57,7 +122,8 @@ public class UrlBuilder {
     }
 
     private String formParameter(Map.Entry<UrlParameter, String> parameter) {
-        return "?" + parameter.getKey().getValue() + "=" + parameter.getValue().replace(" ", "+");
+        return parameter.getKey().getValue() + "="
+                    + parameter.getValue().replace(" ", "+") + "&amp;";
     }
 
     private String getUrl(UrlType urlType) {
