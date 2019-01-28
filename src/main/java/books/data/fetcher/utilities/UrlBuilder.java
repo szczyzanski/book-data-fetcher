@@ -30,6 +30,11 @@ public class UrlBuilder {
         return this;
     }
 
+    public UrlBuilder withAuthor(String author) {
+        urlParameters.put(UrlParameter.AUTHOR, author);
+        return this;
+    }
+
     public URL build() {
         String host = getUrl(urlType);
         String fileType = responseFileType.getValue();

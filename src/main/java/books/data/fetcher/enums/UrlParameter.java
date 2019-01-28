@@ -1,7 +1,7 @@
 package books.data.fetcher.enums;
 
 public enum UrlParameter {
-    ISBN("isbnIssn");
+    ISBN("isbnIssn"), AUTHOR("author");
 
     private String value;
 
