@@ -13,7 +13,7 @@ import java.net.URL;
 @Service
 public class BnService {
 
-    public Object getBookByIsbn(String isbn) {
+    public Book getBookByIsbn(String isbn) {
         UrlBuilder urlBuilder = new UrlBuilder();
         URL methodUrl = urlBuilder.createUrl(UrlType.BN).setFileType(ResponseFileType.JSON).withIsbn(isbn).build();
 

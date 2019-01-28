@@ -1,5 +1,6 @@
 package books.data.fetcher.utilities;
 
+import books.data.fetcher.enums.ResourceType;
 import books.data.fetcher.enums.ResponseFileType;
 import books.data.fetcher.enums.UrlParameter;
 import books.data.fetcher.enums.UrlType;
@@ -30,12 +31,12 @@ public class UrlBuilder {
     }
 
     public URL build() {
-        String host = urlType.getValue();
+        String host = getUrl(urlType);
         String fileType = responseFileType.getValue();
-        String parameters = "";
+        StringBuilder parameters = new StringBuilder();
         for (Map.Entry<UrlParameter, String> parameter : urlParameters.entrySet()) {
             if (isPresent(parameter.getValue())) {
-                parameters += formParameter(parameter);
+                parameters.append(formParameter(parameter));
             }
         }
 
@@ -52,5 +53,9 @@ public class UrlBuilder {
 
     private String formParameter(Map.Entry<UrlParameter, String> parameter) {
         return "?" + parameter.getKey().getValue() + "=" + parameter.getValue();
+    }
+
+    private String getUrl(UrlType urlType) {
+        return PropertiesProvider.get(ResourceType.URL_TYPE, urlType.getValue());
     }
 }

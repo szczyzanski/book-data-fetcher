@@ -1,11 +1,11 @@
 package books.data.fetcher.enums;
 
-public enum UrlType {
-    BN("bn");
+public enum ResourceType {
+    URL_TYPE("urltype");
 
     private String value;
 
-    UrlType(String value) {
+    ResourceType(String value) {
         this.value = value;
     }
 
