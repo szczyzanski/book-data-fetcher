@@ -57,7 +57,7 @@ public class UrlBuilder {
     }
 
     private String formParameter(Map.Entry<UrlParameter, String> parameter) {
-        return "?" + parameter.getKey().getValue() + "=" + parameter.getValue();
+        return "?" + parameter.getKey().getValue() + "=" + parameter.getValue().replace(" ", "+");
     }
 
     private String getUrl(UrlType urlType) {

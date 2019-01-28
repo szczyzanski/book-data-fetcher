@@ -1,6 +1,7 @@
 package books.data.fetcher.services;
 
 import books.data.fetcher.entity.Book;
+import books.data.fetcher.entity.BookList;
 import books.data.fetcher.enums.ResponseFileType;
 import books.data.fetcher.enums.UrlType;
 import books.data.fetcher.utilities.UrlBuilder;
@@ -26,8 +27,19 @@ public class BnService {
         }
     }
 
-    public List<Book> getBooksByAuthor(String author) {
+    public BookList getBooksByAuthor(String author) {
         UrlBuilder urlBuilder = new UrlBuilder();
         URL methodUrl = urlBuilder.createUrl(UrlType.BN).setFileType(ResponseFileType.JSON).withAuthor(author).build();
+
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            return mapper.readValue(methodUrl, BookList.class);
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    public BookList getBook(String isbn, String author, String title) {
+        return null;
     }
 }
