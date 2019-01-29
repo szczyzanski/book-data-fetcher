@@ -1,44 +1,25 @@
 package books.data.fetcher.services;
 
-import books.data.fetcher.entity.Book;
 import books.data.fetcher.entity.BookList;
 import books.data.fetcher.enums.ResponseFileType;
 import books.data.fetcher.enums.UrlType;
 import books.data.fetcher.integration.BookSearchRequestBody;
+import books.data.fetcher.mapping.Mapping;
 import books.data.fetcher.utilities.UrlBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
+
+import static books.data.fetcher.mapping.Mapping.BnServiceMessage.INFO_SEARCH_LINK;
 
 @Service
 public class BnService {
 
-    public Book getBookByIsbn(String isbn) {
-        UrlBuilder urlBuilder = new UrlBuilder();
-        URL methodUrl = urlBuilder.createUrl(UrlType.BN).setFileType(ResponseFileType.JSON).withIsbn(isbn).build();
-
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(methodUrl, Book.class);
-        } catch (IOException e) {
-            return null;
-        }
-    }
-
-    public BookList getBooksByAuthor(String author) {
-        UrlBuilder urlBuilder = new UrlBuilder();
-        URL methodUrl = urlBuilder.createUrl(UrlType.BN).setFileType(ResponseFileType.JSON).withAuthor(author).build();
-
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(methodUrl, BookList.class);
-        } catch (IOException e) {
-            return null;
-        }
-    }
+    private static final Logger log = LoggerFactory.getLogger(Mapping.Logger.FILE_LOGGER);
 
     public BookList getBook(BookSearchRequestBody bookSearchRequestBody) {
         UrlBuilder urlBuilder = new UrlBuilder();
@@ -59,6 +40,8 @@ public class BnService {
                 .withTitle(bookSearchRequestBody.getTitle())
                 .withLimit(bookSearchRequestBody.getLimit())
                 .build();
+
+        log.info(INFO_SEARCH_LINK, methodUrl);
 
         try {
             ObjectMapper mapper = new ObjectMapper();

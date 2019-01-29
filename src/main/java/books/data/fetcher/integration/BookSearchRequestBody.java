@@ -1,6 +1,7 @@
 package books.data.fetcher.integration;
 
 public class BookSearchRequestBody {
+
     private String isbn;
     private String topic;
     private String topicPlace;
@@ -135,5 +136,23 @@ public class BookSearchRequestBody {
 
     public void setLimit(String limit) {
         this.limit = limit;
+    }
+
+    @Override
+    public String toString() {
+        final String LINE_SEPARATOR = "line.separator";
+        return "BookSearchRequestBody{" + System.getProperty(LINE_SEPARATOR) + "isbn='" + isbn + '\'' +
+                System.getProperty(LINE_SEPARATOR) + "topic='" + topic + '\'' + System.getProperty(LINE_SEPARATOR) +
+                "topicPlace='" + topicPlace + '\'' + System.getProperty(LINE_SEPARATOR) + "topicTime='" + topicTime +
+                '\'' + System.getProperty(LINE_SEPARATOR) + "topicWork='" + topicWork + '\'' +
+                System.getProperty(LINE_SEPARATOR) + "publicationPlace='" + publicationPlace + '\'' +
+                System.getProperty(LINE_SEPARATOR) + "publisher='" + publisher + '\'' +
+                System.getProperty(LINE_SEPARATOR) + "genre='" + genre + '\'' + System.getProperty(LINE_SEPARATOR) +
+                "timeOfCreation='" + timeOfCreation + '\'' + System.getProperty(LINE_SEPARATOR) + "culturalOrigin='" +
+                culturalOrigin + '\'' + System.getProperty(LINE_SEPARATOR) + "yearOfPublication='" + yearOfPublication +
+                '\'' + System.getProperty(LINE_SEPARATOR) + "originalLanguage='" + originalLanguage + '\'' +
+                System.getProperty(LINE_SEPARATOR) + "author='" + author + '\'' + System.getProperty(LINE_SEPARATOR) +
+                "title='" + title + '\'' + System.getProperty(LINE_SEPARATOR) + "limit='" + limit + '\'' +
+                System.getProperty(LINE_SEPARATOR) + '}';
     }
 }

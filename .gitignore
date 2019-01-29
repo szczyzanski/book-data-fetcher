@@ -105,7 +105,6 @@ $RECYCLE.BIN/
 *.msix
 *.msm
 *.msp
-
 # Windows shortcuts
 *.lnk
 .idea/compiler.xml
@@ -117,3 +116,9 @@ booksdatafetcher.iml
 target/generated-sources/
 target/generated-test-sources/
 target/test-classes/
+
+# log directory
+logs
+
+#additional
+*.env

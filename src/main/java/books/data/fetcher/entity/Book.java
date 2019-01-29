@@ -1,20 +1,23 @@
 package books.data.fetcher.entity;
 
-import books.data.fetcher.enums.BookFieldForParsing;
-import books.data.fetcher.utilities.BnRecordParser;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.util.Arrays;
-import java.util.Map;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Book {
 
     private String title;
     private String subject;
     private String author;
     private String subjectPlace;
+    private String subjectTime;
+    private String subjectWork;
+    private String publicationPlace;
+    private String publisher;
+    private String kind;
+    private String formOfWork;
+    private String genre;
+    private String timePeriodOfCreation;
+    private String demographicGroup;
+    private String publicationYear;
+    private String languageOfOriginal;
+    private String isbn;
 
     public String getTitle() {
         return title;
@@ -48,11 +51,99 @@ public class Book {
         this.subjectPlace = subjectPlace;
     }
 
-    @JsonProperty("bibs")
-    private void unpackBibs(Map<String, Object>[] bibs) {
-        BnRecordParser bnRecordParser = new BnRecordParser();
-        bnRecordParser.parseBook(this, bibs[0],
-                Arrays.asList(BookFieldForParsing.TITLE, BookFieldForParsing.AUTHOR, BookFieldForParsing.SUBJECT,
-                        BookFieldForParsing.SUBJECT_PLACE));
+    public String getSubjectTime() {
+        return subjectTime;
+    }
+
+    public void setSubjectTime(String subjectTime) {
+        this.subjectTime = subjectTime;
+    }
+
+    public String getSubjectWork() {
+        return subjectWork;
+    }
+
+    public void setSubjectWork(String subjectWork) {
+        this.subjectWork = subjectWork;
+    }
+
+    public String getPublicationPlace() {
+        return publicationPlace;
+    }
+
+    public void setPublicationPlace(String publicationPlace) {
+        this.publicationPlace = publicationPlace;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public String getKind() {
+        return kind;
+    }
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getFormOfWork() {
+        return formOfWork;
+    }
+
+    public void setFormOfWork(String formOfWork) {
+        this.formOfWork = formOfWork;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getTimePeriodOfCreation() {
+        return timePeriodOfCreation;
+    }
+
+    public void setTimePeriodOfCreation(String timePeriodOfCreation) {
+        this.timePeriodOfCreation = timePeriodOfCreation;
+    }
+
+    public String getDemographicGroup() {
+        return demographicGroup;
+    }
+
+    public void setDemographicGroup(String demographicGroup) {
+        this.demographicGroup = demographicGroup;
+    }
+
+    public String getPublicationYear() {
+        return publicationYear;
+    }
+
+    public void setPublicationYear(String publicationYear) {
+        this.publicationYear = publicationYear;
+    }
+
+    public String getLanguageOfOriginal() {
+        return languageOfOriginal;
+    }
+
+    public void setLanguageOfOriginal(String languageOfOriginal) {
+        this.languageOfOriginal = languageOfOriginal;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 }
