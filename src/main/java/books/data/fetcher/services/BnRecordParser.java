@@ -1,4 +1,4 @@
-package books.data.fetcher.utilities;
+package books.data.fetcher.services;
 
 import books.data.fetcher.entity.Book;
 import books.data.fetcher.enums.BookFieldForParsing;

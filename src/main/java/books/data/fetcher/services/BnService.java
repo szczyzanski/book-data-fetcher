@@ -9,14 +9,12 @@ import books.data.fetcher.utilities.UrlBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.URL;
 
 import static books.data.fetcher.mapping.Mapping.BnServiceMessage.INFO_SEARCH_LINK;
 
-@Service
 public class BnService {
 
     private static final Logger log = LoggerFactory.getLogger(Mapping.Logger.FILE_LOGGER);

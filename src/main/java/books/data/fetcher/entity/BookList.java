@@ -1,6 +1,6 @@
 package books.data.fetcher.entity;
 
-import books.data.fetcher.utilities.BnRecordParser;
+import books.data.fetcher.services.BnRecordParser;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -27,7 +27,6 @@ import static books.data.fetcher.enums.BookFieldForParsing.TIME_PERIOD_OF_CREATI
 import static books.data.fetcher.enums.BookFieldForParsing.TITLE;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-
 public class BookList {
 
     private List<Book> books;

@@ -140,19 +140,15 @@ public class BookSearchRequestBody {
 
     @Override
     public String toString() {
-        final String LINE_SEPARATOR = "line.separator";
-        return "BookSearchRequestBody{" + System.getProperty(LINE_SEPARATOR) + "isbn='" + isbn + '\'' +
-                System.getProperty(LINE_SEPARATOR) + "topic='" + topic + '\'' + System.getProperty(LINE_SEPARATOR) +
-                "topicPlace='" + topicPlace + '\'' + System.getProperty(LINE_SEPARATOR) + "topicTime='" + topicTime +
-                '\'' + System.getProperty(LINE_SEPARATOR) + "topicWork='" + topicWork + '\'' +
-                System.getProperty(LINE_SEPARATOR) + "publicationPlace='" + publicationPlace + '\'' +
-                System.getProperty(LINE_SEPARATOR) + "publisher='" + publisher + '\'' +
-                System.getProperty(LINE_SEPARATOR) + "genre='" + genre + '\'' + System.getProperty(LINE_SEPARATOR) +
-                "timeOfCreation='" + timeOfCreation + '\'' + System.getProperty(LINE_SEPARATOR) + "culturalOrigin='" +
-                culturalOrigin + '\'' + System.getProperty(LINE_SEPARATOR) + "yearOfPublication='" + yearOfPublication +
-                '\'' + System.getProperty(LINE_SEPARATOR) + "originalLanguage='" + originalLanguage + '\'' +
-                System.getProperty(LINE_SEPARATOR) + "author='" + author + '\'' + System.getProperty(LINE_SEPARATOR) +
-                "title='" + title + '\'' + System.getProperty(LINE_SEPARATOR) + "limit='" + limit + '\'' +
-                System.getProperty(LINE_SEPARATOR) + '}';
+        final String LINE_SEPARATOR = System.getProperty("line.separator");
+        return "BookSearchRequestBody{" + LINE_SEPARATOR + "isbn='" + isbn + '\'' + LINE_SEPARATOR + "topic='" + topic +
+                '\'' + LINE_SEPARATOR + "topicPlace='" + topicPlace + '\'' + LINE_SEPARATOR + "topicTime='" +
+                topicTime + '\'' + LINE_SEPARATOR + "topicWork='" + topicWork + '\'' + LINE_SEPARATOR +
+                "publicationPlace='" + publicationPlace + '\'' + LINE_SEPARATOR + "publisher='" + publisher + '\'' +
+                LINE_SEPARATOR + "genre='" + genre + '\'' + LINE_SEPARATOR + "timeOfCreation='" + timeOfCreation +
+                '\'' + LINE_SEPARATOR + "culturalOrigin='" + culturalOrigin + '\'' + LINE_SEPARATOR +
+                "yearOfPublication='" + yearOfPublication + '\'' + LINE_SEPARATOR + "originalLanguage='" +
+                originalLanguage + '\'' + LINE_SEPARATOR + "author='" + author + '\'' + LINE_SEPARATOR + "title='" +
+                title + '\'' + LINE_SEPARATOR + "limit='" + limit + '\'' + LINE_SEPARATOR + '}';
     }
 }
